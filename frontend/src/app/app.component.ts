@@ -10,8 +10,8 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'frontend';
-  url: string = 'http://localhost:8000/random_thought';
-
+  url: string = 'http://localhost:8000/get_random_thought';
+ 
   constructor(private http: HttpClient){}
   public getRandomThought(){
   	this.http.get(this.url).toPromise().then((res)=>{

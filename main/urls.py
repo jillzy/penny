@@ -8,4 +8,5 @@ from django.views.generic import RedirectView
 urlpatterns = [
 	#path('', views.random_thought, name='random_thought'),
 	path('get_random_thought/', views.get_random_thought),
+	path('post_thought/', views.post_thought),
 ]

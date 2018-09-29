@@ -16,12 +16,16 @@ Including another URLconf
 
 
 from django.urls import path, include
+from django.conf.urls import url
 from django.contrib import admin
 
 from django.views.generic import RedirectView
 from django.contrib.staticfiles.views import serve
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('main.urls')),
+	path('admin/', admin.site.urls),
+	path('', include('main.urls')),
+	url(r'^$', serve,kwargs={'path': 'index.html'}),
+	url(r'^(?!/?static/)(?!/?media/)(?P<path>.*\..*)$',
+		RedirectView.as_view(url='/static/%(path)s', permanent=False)),
 ]

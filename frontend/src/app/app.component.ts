@@ -13,7 +13,7 @@ export class AppComponent {
   url: string = 'http://localhost:8000/random_thought';
 
   constructor(private http: HttpClient){}
-  public getThought(){
+  public getRandomThought(){
   	this.http.get(this.url).toPromise().then((res)=>{
   		console.log(res);
   	});
